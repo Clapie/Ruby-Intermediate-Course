@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hello Food</title>
+  <link rel="stylesheet" href="Master.css">
+  <link rel="stylesheet" href="View.css">
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <ul>
+        <li id="nav-brand">Hello Food</li>
+        <li class="active"><a href="./View.html">Food List</a></li>
+        <li><a href="./Detail.html">Food Detail</a></li>
+        <li><a href="./Create.html">New Food</a></li>
+        <li><a href="./Edit.html">Edit Food</a></li>
+        <li id="nav-user">User &#9207;</li>
+      </ul>
+    </nav>
+
+    <div class="content">
+      <h1>Food List</h1>
+      <table>
+        <tr>
+          <th><b>Name</b></th>
+          <th><b>Description</b></th>
+          <th><b>Price</b></th>
+          <th><b>Action</b></th>
+        </tr>
+        <tr>
+          <td>Nasi Goreng</td>
+          <td>Nasi yang digoreng dengan kecap yang memberikan rasa gurih.</td>
+          <td>10.000,00</td>
+          <td class="icon">
+            <a href="./Detail.html"><img src="assets/detail.png" alt="Food Detail"></a>
+            <a href="./Edit.html"><img src="assets/edit.png" alt="Food Edit"></a>
+            <a href="#"><img src="assets/delete.png" alt="Food Delete"></a>
+          </td>
+        </tr>
+        <tr>
+          <td>Teh Manis</td>
+          <td>Teh dengan gula</td>
+          <td>3.000,00</td>
+          <td class="icon">
+            <a href="./Detail.html"><img src="assets/detail.png" alt="Food Detail"></a>
+            <a href="./Edit.html"><img src="assets/edit.png" alt="Food Edit"></a>
+            <a href="#"><img src="assets/delete.png" alt="Food Delete"></a>
+          </td>
+        </tr>
+      </table>
+
+      <br><br><a href="./Create.html"><button class="btn-primary">New Food</button></a>
+    </div>
+
+    <footer>Clapie &#169; 2020</footer>
+  </div>
+</body>
+</html>
