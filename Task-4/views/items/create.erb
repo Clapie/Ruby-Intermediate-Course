@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hello Food</title>
+  <link rel="stylesheet" href="/stylesheets/Master.css">
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <ul>
+        <li id="nav-brand">Hello Food</li>
+        <li><a href="/items">Food List</a></li>
+        <li><a href="/categories">Category List</a></li>
+        <li id="nav-user">User &#9207;</li>
+      </ul>
+    </nav>
+
+    <div class="content">
+      <h1>New Food</h1>
+      <form action="/items/create" method="POST">
+        <table>
+          <tr>
+            <td class="w-25"><label for="name" class="form-label">Food Name</label></td>
+            <td>: <input type="text" id="name" class="text-field" name="food-name" placeholder="Food Name" required></td>
+          </tr>
+          <tr>
+            <td class="w-25"><label for="price" class="form-label">Food Price</label></td>
+            <td>: <input type="number" id="price" class="text-field" name="food-price" placeholder="Food Price" required></td>
+          </tr>
+          <tr>
+            <td class="form-text-area w-25" class="form-label"><label for="food-desc">Food Description</label></td>
+            <td>: <textarea class="form-text-area" rows="3" id="food-desc" name="food-desc" placeholder="Food Description"></textarea></td>
+          </tr>
+          <tr>
+            <td class="w-25"><label>Food Categories</label></td>
+            <td>:
+              <% categories.each do |category| %>
+                <input type="checkbox" name="food-categories[]" id="<%= category.id %>" value="<%= category.id %>"><%= category.name %></input>
+              <% end %>
+            </td>
+          </tr>
+        </table>
+        <br><br>
+        <button type="submit" class="btn-primary float-left">Create Food</button>
+      </form>
+      <a href="/items"><button class="btn-secondary ml-4">Back</button></a>
+    </div>
+
+    <footer>Clapie &#169; 2020</footer>
+  </div>
+</body>
+</html>

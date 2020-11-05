@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hello Food</title>
+  <link rel="stylesheet" href="/stylesheets/Master.css">
+  <link rel="stylesheet" href="/stylesheets/View.css">
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <ul>
+        <li id="nav-brand">Hello Food</li>
+        <li><a href="/">Food List</a></li>
+        <li class="active"><a href="/categories">Category List</a></li>
+        <li id="nav-user">User &#9207;</li>
+      </ul>
+    </nav>
+
+    <div class="content">
+      <h1>Category List</h1>
+      <table>
+        <thead>
+          <tr>
+            <th><b>Name</b></th>
+            <th><b>Food</b></th>
+            <th><b>Action</b></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% categories.each do |category| %>
+            <tr>
+              <td><%= category.name %></td>
+              <td><%= category.items.join(", ") %></td>
+              <td class="icon">
+                <img src="images/detail.png" alt="Category Detail" onclick="redirect('/categories/detail/<%= category.id %>');">
+                <img src="images/edit.png" alt="Category Edit" onclick="redirect('/categories/edit/<%= category.id %>')">
+                <img src="images/delete.png" alt="Category Delete" onclick="validateDelete('categories/delete/<%= category.id %>')">
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+      <br><br>
+      <a href="/categories/new"><button class="btn-primary">New Category</button></a>
+    </div>
+
+    <footer>Clapie &#169; 2020</footer>
+  </div>
+
+  <script src="/javascripts/Master.js"></script>
+</body>
+</html>

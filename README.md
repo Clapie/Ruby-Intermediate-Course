@@ -19,3 +19,8 @@ Homework Task for Intermediate Ruby Course program hosted by [Gojek's GoAcademy]
 
    Make actual CRUD in simple web pages that had been made in Task-1. CRUD here includes Create, Read, Update and Delete the data from MySQL Server and implemented in Ruby Sinatra framework.
  </details>
+ <details>
+   <summary>Task-4 Many-to-many Relationship Ruby Sinatra</summary>
+
+   Upgrade the previous task and implement many-to-many relationship CRUD. Many-to-many relationship implemented here are the relationships between food and category. One food can have more than one category while category can belongs to more than one food. To make the application more secure to human error, validation for create, edit, and delete are implemented as well.
+ </details>
