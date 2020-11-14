@@ -1,0 +1,146 @@
+html {
+  background-color: #ddd;
+  font-family: Arial;
+}
+
+body {
+  margin: 0;
+}
+
+.container {
+  height: auto;
+  width: 100%;
+}
+
+nav {
+  width: 100%;
+  background-color: #333;
+  overflow: hidden;
+  color: white;
+}
+
+nav li {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  list-style-type: none;
+  font-size: 17px;
+  width: 10%;
+}
+
+
+nav li a:hover {
+  color: salmon;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+nav li.active a{
+  text-decoration: underline;
+  text-decoration-color: salmon;
+  color: salmon;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: white;
+}
+
+
+#nav-brand {
+  margin-left: 2%;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+#nav-user {
+  float: right;
+  margin-right: 50px;
+}
+
+.content {
+  background-color: whitesmoke;
+  width: 90%;
+  margin: 2% auto;
+  padding: 10px 10px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  border-radius: 5px;
+  overflow:hidden;
+}
+
+.form-text-area {
+  vertical-align: top;
+}
+
+.form-label {
+  margin-right: 100px;
+}
+
+button {
+  border: 2px solid #555555;
+  padding: 10px 20px;
+  display: inline-block;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background-color: #555555;
+  color: white;
+}
+
+.btn-primary:hover{
+  transition-duration: 0.4s;
+  background-color: #bebebe;
+  color: #555555;
+}
+
+.btn-secondary {
+  background-color: whitesmoke;
+  color: #555555;
+}
+
+.btn-secondary:hover{
+  transition-duration: 0.4s;
+  background-color: #bebebe;
+  color: whitesmoke;
+}
+
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 10px;
+  background-color: #333;
+  color: white;
+  text-align: center;
+}
+
+.no-border {
+  border: none !important;
+}
+
+.ml-4 {
+  margin-left: 4px;
+}
+
+.float-left {
+  float:left;
+}
+
+.w-25 {
+  min-width: 25%;
+}

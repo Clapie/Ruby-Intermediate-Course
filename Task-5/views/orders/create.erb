@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hello Food</title>
+  <link rel="stylesheet" href="/stylesheets/Master.css">
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <ul>
+        <li id="nav-brand">Hello Food</li>
+        <li><a href="/items">Food List</a></li>
+        <li><a href="/categories">Category List</a></li>
+        <li><a href="/orders">Order List</a></li>
+        <li><a href="/customers">Customer List</a></li>
+        <li id="nav-user">User &#9207;</li>
+      </ul>
+    </nav>
+
+    <div class="content">
+      <h1>New Order</h1>
+      <form action="/orders/create" method="POST">
+        <table>
+          <tr>
+            <td class="w-25"><label for="user-id" class="form-label">User Name</label></td>
+            <td>:
+              <select name="user-id">
+                <% users.each do |user| %>
+                  <option value="<%= user.id %>"><%= user.name %></option>
+                <% end %>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td class="w-25"><label for="customer-id" class="form-label">Customer Name</label></td>
+            <td>:
+              <select name="customer-id">
+                <% customers.each do |customer| %>
+                  <option value="<%= customer.id %>"><%= customer.name %></option>
+                <% end %>
+              </select>
+            </td>
+          </tr>
+        </table>
+
+        <table id="item-table">
+          <tr>
+            <th><b>Food Name</b></th>
+            <th><b>Food Qty</b></th>
+          </tr>
+        </table>
+        <br><br>
+        <button type="button" onclick="addTableRow()">Add Item</button>
+        <br><br>
+        <button type="submit" class="btn-primary float-left">Create Food</button>
+      </form>
+      <a href="/orders"><button class="btn-secondary ml-4">Back</button></a>
+    </div>
+
+    <footer>Clapie &#169; 2020</footer>
+
+    <script>
+      function addTableRow() {
+        var table = document.getElementById("item-table");
+        var tr = table.insertRow(-1);
+        var td1 = tr.insertCell(0);
+        var td2 = tr.insertCell(1);
+
+        td1.innerHTML = `
+          <select name="item-ids[]">
+            <% items.each do |item| %>
+              <option value="<%= item.id %>"><%= item.name %></option>
+            <% end %>
+          </select>
+        `;
+        td2.innerHTML = `
+          <input type="number" id="qty" class="text-field" name="item-qtys[]" placeholder="Item Quantity" required>
+        `;
+      }
+    </script>
+  </div>
+</body>
+</html>

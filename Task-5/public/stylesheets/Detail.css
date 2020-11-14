@@ -1,0 +1,49 @@
+table {
+  border-collapse: collapse;
+  width: 50%;
+  border: 1px solid black;
+  padding-left: 10px;
+}
+
+img {
+  float: left;
+  height: auto;
+  display: block;
+  width: 600px;
+  margin-right: 15px;
+}
+
+.food-detail {
+  margin: 20px;
+}
+
+.food-icon {
+  width: 20px;
+  float: right;
+}
+
+h2, h3, h4{
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+h3, h4 {
+  font-weight: normal;
+}
+
+h3 {
+  margin-top: 10px;
+}
+
+.food-note img {
+  float: left;
+}
+
+.food-note p {
+  float: left;
+  vertical-align: bottom;
+}
+
+.food-footer {
+  margin-top: 50px;
+}

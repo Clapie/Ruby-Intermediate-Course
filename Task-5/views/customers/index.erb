@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hello Food</title>
+  <link rel="stylesheet" href="/stylesheets/Master.css">
+  <link rel="stylesheet" href="/stylesheets/View.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <ul>
+        <li id="nav-brand">Hello Food</li>
+        <li><a href="/items">Food List</a></li>
+        <li><a href="/categories">Category List</a></li>
+        <li><a href="/orders">Order List</a></li>
+        <li class="active"><a href="/customers">Customer List</a></li>
+        <li id="nav-user">User &#9207;</li>
+      </ul>
+    </nav>
+
+    <div class="content">
+      <h1>Customer List</h1>
+
+      <form action="/customers" method="GET">
+        <input type="text" placeholder="Search by name.." name="search">
+        <button type="submit"><i class="fa fa-search"></i></button>
+      </form>
+
+      <table>
+        <thead>
+          <tr>
+            <th><b>Name</b></th>
+            <th><b>Phone Number</b></th>
+            <th><b>Action</b></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% customers.each do |customer| %>
+            <tr>
+              <td><%= customer.name %></td>
+              <td><%= customer.phone_number %></td>
+              <td class="icon">
+                <i class="fa fa-eye fa-2x" onclick="redirect('/customers/detail/<%= customer.id %>');"></i>
+                <i class="fa fa-edit fa-2x" onclick="redirect('/customers/edit/<%= customer.id %>');"></i>
+                <i class="fa fa-trash-o fa-2x" onclick="validateDelete('/customers/delete/<%= customer.id %>');"></i>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+      <br><br>
+      <a href="/customers/new"><button class="btn-primary">New Customer</button></a>
+    </div>
+
+    <footer>Clapie &#169; 2020</footer>
+  </div>
+
+  <script src="/javascripts/Master.js"></script>
+</body>
+</html>

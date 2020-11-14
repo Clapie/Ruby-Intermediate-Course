@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hello Food</title>
+  <link rel="stylesheet" href="/stylesheets/Master.css">
+  <link rel="stylesheet" href="/stylesheets/Detail.css">
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <ul>
+        <li id="nav-brand">Hello Food</li>
+        <li><a href="/items">Food List</a></li>
+        <li><a href="/categories">Category List</a></li>
+        <li><a href="/orders">Order List</a></li>
+        <li><a href="/customers">Customer List</a></li>
+        <li id="nav-user">User &#9207;</li>
+      </ul>
+    </nav>
+
+    <div class="content">
+      <h1>Order Details</h1>
+
+      <table class="no-border">
+        <tr>
+          <td class="w-25">User Name</td>
+          <td>: <%= order.user.name %></td>
+        </tr>
+        <tr>
+          <td class="w-25">Customer Name</td>
+          <td>: <%= order.customer.name %></td>
+        </tr>
+        <tr>
+          <td class="w-25">Customer Phone Number</td>
+          <td>: <%= order.customer.phone_number %></td>
+        </tr>
+        <tr>
+          <td class="w-25">Item Bought</td>
+          <td>: <%= order.items %></td>
+        </tr>
+        <tr>
+          <td class="w-25">Total Price</td>
+          <td>: <%= order.total_price %></td>
+        </tr>
+        <tr>
+          <td class="w-25">Created At</td>
+          <td>: <%= order.order_date %></td>
+        </tr>
+      </table>
+      <br>
+      <a href="/orders"><button class="btn-secondary">Back</button></a>
+    </div>
+
+    <footer>Clapie &#169; 2020</footer>
+  </div>
+</body>
+</html>
