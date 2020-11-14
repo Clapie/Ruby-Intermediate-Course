@@ -9,7 +9,9 @@ class CustomerController
   end
 
   def new_customer
-    customers = Customer.get_all_customers
+    customers = Customer.get_all_customers_list
+    customer_name = customers[0]
+    customer_phone = customers[1]
     renderer = ERB.new(File.read('./views/customers/create.erb'))
     renderer.result(binding)
   end
@@ -22,6 +24,7 @@ class CustomerController
 
   def show_customer_details(params)
     customer = Customer.get_customer_detail(params['id'])
+    orders = Customer.get_customer_order(params['id'])
     renderer = ERB.new(File.read('./views/customers/detail.erb'))
     renderer.result(binding)
   end

@@ -1,6 +1,7 @@
 require './db/db_connector.rb'
 require './models/item.rb'
 require './models/category.rb'
+require 'pry'
 
 class ItemController
   def show_all_items(params = nil)

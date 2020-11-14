@@ -65,14 +65,24 @@ class Order
     orders
   end
 
-  def self.create_new_order(user_id, customer_id, order_date, item_ids, item_qtys)
+  def self.create_new_order(user_id, customer_id, order_date, raw_item_ids, raw_item_qtys)
     client = create_db_client
     client.query("insert into orders (user_id, customer_id, order_date) values ('#{user_id}', '#{customer_id}', '#{order_date}')")
     rawOrder = client.query("select max(order_id) from orders").first
     order_id = rawOrder["max(order_id)"]
 
-    item_ids.each_with_index do |item_id, index|
-      client.query("insert into order_details (order_id, item_id, item_qty) values ('#{order_id}', '#{item_ids[index]}', '#{item_qtys[index]}')")
+    item_ids = Hash.new(0)
+
+    raw_item_ids.each_with_index do |raw_item_ids, index|
+      if(item_ids[raw_item_ids] == 0 )
+        item_ids[raw_item_ids] = raw_item_qtys[index].to_i
+      else
+        item_ids[raw_item_ids] += raw_item_qtys[index].to_i
+      end
+    end
+
+    item_ids.each do |item_id, item_qty|
+      client.query("insert into order_details (order_id, item_id, item_qty) values ('#{order_id}', '#{item_id}', '#{item_qty}')")
     end
   end
 
@@ -98,13 +108,21 @@ class Order
 
     user = User.new(rawOrders["user_id"], rawOrders["user_name"])
     customer = Customer.new(rawOrders["customer_id"], rawOrders["customer_name"], rawOrders["customer_phone"])
+
+    items = Array.new
+    rawItems = client.query("select item_id, item_qty from order_details where order_id = '#{id}'");
+    rawItems.each do |item|
+      temp_item = Item.get_item_detail(item["item_id"])
+      items.push([temp_item.name, temp_item.price, item["item_qty"]])
+    end
+
     order = Order.new(
                       rawOrders["order_id"],
                       user,
                       customer,
                       rawOrders["order_date"],
                       rawOrders["Total"],
-                      rawOrders["Items_Bought"]
+                      items
                     )
   end
 end

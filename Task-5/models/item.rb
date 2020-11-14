@@ -49,7 +49,7 @@ class Item
     items
   end
 
-  def self.create_new_item(name, price, description, categories)
+  def self.create_new_item(name, price, description, categories=nil)
     client = create_db_client
     client.query("insert into items (item_name, item_price, item_description) values ('#{name}', '#{price}', '#{description}')")
     rawItem_id = client.query("select max(item_id) item_id from items").first
@@ -72,13 +72,15 @@ class Item
     item
   end
 
-  def self.update_item_detail(id, name, price, description, categories)
+  def self.update_item_detail(id, name, price, description, categories=nil)
     client = create_db_client
     client.query("update items set item_name='#{name}', item_price='#{price}', item_description='#{description}' where item_id = '#{id}'")
     client.query("delete from item_categories where item_id = '#{id}'")
 
-    categories.each do |category_id|
-      client.query("insert into item_categories (item_id, category_id) values ('#{id}', '#{category_id}')")
+    unless categories.nil?
+      categories.each do |category_id|
+        client.query("insert into item_categories (item_id, category_id) values ('#{id}', '#{category_id}')")
+      end
     end
   end
 

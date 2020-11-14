@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hello Food</title>
   <link rel="stylesheet" href="/stylesheets/Master.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
   <div class="container">
@@ -45,29 +46,30 @@
           </tr>
         </table>
 
-        <table id="item-table">
+        <table id="item-table" class="no-border">
           <tr>
             <th><b>Food Name</b></th>
             <th><b>Food Qty</b></th>
+            <td></td>
           </tr>
         </table>
         <br><br>
-        <button type="button" onclick="addTableRow()">Add Item</button>
+        <button type="button" onclick="addTableRowOrders()">Add Item</button>
         <br><br>
-        <button type="submit" class="btn-primary float-left">Create Food</button>
+        <button type="submit" class="btn btn-primary float-left">Create Food</button>
       </form>
-      <a href="/orders"><button class="btn-secondary ml-4">Back</button></a>
+      <a href="/orders"><button class="btn btn-secondary ml-4">Back</button></a>
     </div>
 
     <footer>Clapie &#169; 2020</footer>
 
     <script>
-      function addTableRow() {
+      function addTableRowOrders() {
         var table = document.getElementById("item-table");
         var tr = table.insertRow(-1);
         var td1 = tr.insertCell(0);
         var td2 = tr.insertCell(1);
-
+        var td3 = tr.insertCell(2);
         td1.innerHTML = `
           <select name="item-ids[]">
             <% items.each do |item| %>
@@ -78,6 +80,14 @@
         td2.innerHTML = `
           <input type="number" id="qty" class="text-field" name="item-qtys[]" placeholder="Item Quantity" required>
         `;
+        td3.innerHTML = `
+          <i class="fa fa-trash-o fa-lg" onclick="confirm('Are you sure?');removeTableRow(this)"></i>
+        `
+      }
+
+      function removeTableRow(id){
+        var row = id.parentNode.parentNode.rowIndex;
+        document.getElementById("item-table").deleteRow(row);
       }
     </script>
   </div>

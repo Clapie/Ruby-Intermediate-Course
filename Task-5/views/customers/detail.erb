@@ -34,7 +34,23 @@
         </tr>
       </table>
       <br>
-      <a href="/customers"><button class="btn-secondary">Back</button></a>
+      <h2>Customer Order</h2>
+      <table class="no-border">
+        <tr>
+          <th>Created By</th>
+          <th>Created At</th>
+          <th>Total Price</th>
+        </tr>
+        <% orders.each do |order| %>
+          <tr>
+            <td><%= order[0] %></td>
+            <td><%= order[1].strftime("%d %B %Y") %></td>
+            <td><%= order[2] %></td>
+          </tr>
+        <% end %>
+      </table>
+      <br>
+      <a href="/customers"><button class="btn btn-secondary">Back</button></a>
     </div>
 
     <footer>Clapie &#169; 2020</footer>

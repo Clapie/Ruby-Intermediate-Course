@@ -37,20 +37,37 @@
           <td>: <%= order.customer.phone_number %></td>
         </tr>
         <tr>
-          <td class="w-25">Item Bought</td>
-          <td>: <%= order.items %></td>
-        </tr>
-        <tr>
-          <td class="w-25">Total Price</td>
-          <td>: <%= order.total_price %></td>
-        </tr>
-        <tr>
           <td class="w-25">Created At</td>
-          <td>: <%= order.order_date %></td>
+          <td>: <%= order.order_date.strftime("%d %B %Y") %></td>
+        </tr>
+      </table>
+
+      <br>
+      <h2>Item Bought</h2>
+      <table>
+        <tr>
+          <th><b>Item Name</b></th>
+          <th><b>Item Price</b></th>
+          <th><b>Item Quantity</b></th>
+          <th><b>Price</b></th>
+        </tr>
+
+        <% order.items.each do |item| %>
+          <tr>
+            <td><%= item[0] %></td>
+            <td><%= item[1] %></td>
+            <td><%= item[2] %></td>
+            <td><%= item[1] * item[2] %></td>
+          </tr>
+        <% end %>
+
+        <tr>
+          <th colspan=3>Total Price</th>
+          <th><%= order.total_price %></th>
         </tr>
       </table>
       <br>
-      <a href="/orders"><button class="btn-secondary">Back</button></a>
+      <a href="/orders"><button class="btn btn-secondary">Back</button></a>
     </div>
 
     <footer>Clapie &#169; 2020</footer>

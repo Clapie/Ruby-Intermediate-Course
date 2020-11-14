@@ -28,7 +28,7 @@
         <input type="text" placeholder="Search by customer name.." name="search">
         <button type="submit"><i class="fa fa-search"></i></button>
       </form>
-
+      <br>
       <table>
         <thead>
           <tr>
@@ -49,7 +49,7 @@
               <td><%= order.customer.phone_number %></td>
               <td><%= order.items %></td>
               <td><%= order.total_price %></td>
-              <td><%= order.order_date.strftime("%d %B %Y")  %></td>
+              <td><%= order.order_date.strftime("%d %B %Y") %></td>
               <td><%= order.user.name %></td>
               <td class="icon">
                 <i class="fa fa-eye fa-2x" onclick="redirect('/orders/detail/<%= order.id %>');"></i>
@@ -60,7 +60,7 @@
       </table>
 
       <br><br>
-      <a href="/orders/new"><button class="btn-primary">New Order</button></a>
+      <a href="/orders/new"><button class="btn btn-primary">New Order</button></a>
     </div>
 
     <footer>Clapie &#169; 2020</footer>

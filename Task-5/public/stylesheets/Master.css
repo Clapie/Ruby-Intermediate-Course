@@ -30,7 +30,6 @@ nav li {
   width: 10%;
 }
 
-
 nav li a:hover {
   color: salmon;
   font-size: 18px;
@@ -75,6 +74,7 @@ ul {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   border-radius: 5px;
   overflow:hidden;
+  margin-bottom: 70px;
 }
 
 .form-text-area {
@@ -85,7 +85,7 @@ ul {
   margin-right: 100px;
 }
 
-button {
+.btn {
   border: 2px solid #555555;
   padding: 10px 20px;
   display: inline-block;
@@ -143,4 +143,19 @@ footer {
 
 .w-25 {
   min-width: 25%;
+}
+
+th {
+  background-color: #555555;
+  color: white;
+}
+
+th, td {
+  text-align: left;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.fa-trash-o {
+  color: #cc0000;
 }

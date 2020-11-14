@@ -21,14 +21,14 @@ function validateNumberOnly(obj, errmsg){
 }
 
 function validateUniqueCustomer(){
-  var customer_list = document.getElementById("customer-list").value;
-  var customer_name = customer_list[0];
-  var customer_phone = customer_list[1];
+  list_name = document.getElementById("list-customer-name").value.split(",");
+  list_phone = document.getElementById("list-customer-phone").value.split(",");
 
   if(!validateNumberOnly("phone", "Please input valid phone number")) return false;
-  for (i = 0; i < customer_list.length; i++){
-    if (!validateUnique(customer_name[i], "name", "Duplicate Name")) return false;
-    if (!validateUnique(customer_phone[i], "phone", "Duplicate Phone Number")) return false;
+
+  for (i = 0; i < list_name.length; i++){
+    if (!validateUnique(list_name[i], "name", "Duplicate Name, please check existing customer")) return false;
+    if (!validateUnique(list_phone[i], "phone", "Duplicate Phone Number, please check existing customer")) return false;
   }
   return true;
 }

@@ -19,11 +19,12 @@
       </ul>
     </nav>
 
-    <input type="hidden" id="customer-list" value="<%= Customer.get_all_customers_list %>">
+    <input type="hidden" id="list-customer-name" value="<%= customer_name.join(",") %>">
+    <input type="hidden" id="list-customer-phone" value="<%= customer_phone.join(",") %>">
 
     <div class="content">
       <h1>New Customer</h1>
-      <form action="/customers/create" method="POST" onsubmit="validateUniqueCustomer()">
+      <form action="/customers/create" method="POST" onsubmit="return validateUniqueCustomer()">
         <table>
           <tr>
             <td class="w-25"><label for="name" class="form-label">Customer Name</label></td>
@@ -35,9 +36,9 @@
           </tr>
         </table>
         <br><br>
-        <button type="submit" class="btn-primary float-left">Create Customer</button>
+        <button type="submit" class="btn btn-primary float-left">Create Customer</button>
       </form>
-      <a href="/customers"><button class="btn-secondary ml-4">Back</button></a>
+      <a href="/customers"><button class="btn btn-secondary ml-4">Back</button></a>
     </div>
 
     <footer>Clapie &#169; 2020</footer>
